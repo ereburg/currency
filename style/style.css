@@ -1,0 +1,112 @@
+:root {
+  --text-color: rgb(196, 196, 196);
+  --bg-color: rgb(109, 130, 156);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, serif;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  background: var(--bg-color);
+}
+
+.currency {
+  max-width: 450px;
+  padding: 40px;
+  background: #191919;
+  color: #fff;
+  text-align: center;
+}
+
+.main-title {
+  margin-bottom: 25px;
+  font-size: 36px;
+}
+
+.main-text {
+  font-size: 10px;
+  color: var(--text-color);
+}
+
+.form {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.form-item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
+.label-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  font-weight: bold;
+  transition: all .5s ease;
+}
+
+.form-input {
+  -webkit-appearance: none;
+  display: block;
+  max-width: 180px;
+  width: 100%;
+  margin: 10px auto;
+  padding: 10px 10px;
+  text-align: center;
+  color: inherit;
+  font-size: inherit;
+  border-radius: 15px;
+  border: 2px solid #3498db;
+  background: none;
+  transition: all .5s ease;
+  outline: none;
+}
+
+.form-input:hover {
+  background: rgba(41, 41, 41, 0.432);
+}
+
+.form-input:focus {
+  max-width: 280px;
+  border: 2px solid #2ecc71;
+  color: var(--text-color);
+  background: none;
+}
+
+.form-input:not(:placeholder-shown) + .label-text {
+  color: #eee;
+  transform: translate(-250%, -50%) scale(.75);
+}
+
+@media screen and (max-width: 525px) {
+  .currency {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    padding: 40px 20px;
+  }
+  .main-title {
+    font-size: 32px;
+  }
+}
