@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const part2 = '6f7cabefb6b4a';
   const part3 = 'f94&symbols=USD,RUB,EUR,BYN,GBP';
 
-  // fetch(`http://data.fixer.io/api/latest?access_key=${part1} ${part2} ${part3}`)
+  // fetch(`https://data.fixer.io/api/latest?access_key=${part1} ${part2} ${part3}`)
   //   .then((resp) => resp.json())
   //   .then((data) => rates = data.rates)
   //   .then(currency);
@@ -163,9 +163,10 @@ document.addEventListener("DOMContentLoaded", () => {
     
   }
 
-  if (rates == {}) {
-    currency();
-  }
+  // if (rates == {}) {
+  // }
+  currency();
+
 
   const goUp = document.querySelector('.go-up');
   const centerWrapper = document.querySelector('.center-wrapper');
