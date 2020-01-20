@@ -64,10 +64,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const part2 = '6f7cabefb6b4a';
   const part3 = 'f94&symbols=USD,RUB,EUR,BYN,GBP';
 
-  fetch(`http://data.fixer.io/api/latest?access_key=${part1} ${part2} ${part3}`)
-    .then((resp) => resp.json())
-    .then((data) => rates = data.rates)
-    .then(currency);
+  // fetch(`http://data.fixer.io/api/latest?access_key=${part1} ${part2} ${part3}`)
+  //   .then((resp) => resp.json())
+  //   .then((data) => rates = data.rates)
+  //   .then(currency);
 
 
   function currency() {
