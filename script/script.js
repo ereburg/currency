@@ -20,54 +20,65 @@ document.addEventListener("DOMContentLoaded", () => {
   textDate.textContent = date;
 
 
-  // Define our viewportWidth variable
-	let viewportWidth;
-
-	const setViewportWidth = function () {
-		viewportWidth = window.innerWidth || document.documentElement.clientWidth;
-	};
-	
-	// const logWidth = function () { // Log the viewport width into the console
-	// 	if (viewportWidth > 640) {
-	// 		console.log('Wide viewport');
-	// 	} else {
-	// 		console.log('Small viewport');
-	// 	}
-	// };
-
-	setViewportWidth();
-	// logWidth();
-	
-	window.addEventListener('resize', function () { // On resize events, recalculate and log
-		setViewportWidth();
-		// logWidth();
-		calcTitleWidth();
-
-  }, false);
-  
   // Titles
-	const titles = document.querySelectorAll('.currency__preview-item');
+  const titles = document.querySelectorAll('.currency__preview-item');
 
-	const calcTitleWidth = () => {
-		titles.forEach(item => {
-			let WIDTH = getComputedStyle(item).width;
-			let HEIGHT = item.style.height = WIDTH;
-		});
-	};
+  function calcTitleWidth() {
+    titles.forEach(item => {
+      let WIDTH = getComputedStyle(item).width;
+      let HEIGHT = item.style.height = WIDTH;
+    });
+  }
 
-	calcTitleWidth();
+  // calcTitleWidth();
 
+  function calcTitleWidth2() {
+    titles.forEach(item => {
+      let HEIGHT = item.style.height = '120px';
+    });
+  }
+
+  // calcTitleWidth2();
+
+  let viewportWidth;
+
+  const setViewportWidth = function () {
+    viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+  };
+
+  const logWidth = function () { // Log the viewport width into the console
+    if (viewportWidth > 435) {
+      calcTitleWidth();
+    } else {
+      calcTitleWidth2();
+    }
+  };
+
+  setViewportWidth();
+  // logWidth();
+
+  window.addEventListener('resize', function () { // On resize events, recalculate and log
+    setViewportWidth();
+    logWidth();
+  }, false);
+
+  logWidth();
+
+
+
+
+
+  // Stats
   let rates = {};
   let USD, EUR, RUB, BYN, GBP;
 
   const part1 = 'ce26fb4b5968ebce';
   const part2 = '6f7cabefb6b4a';
   const part3 = 'f94&symbols=USD,RUB,EUR,BYN,GBP';
-
-  // fetch(`https://data.fixer.io/api/latest?access_key=${part1} ${part2} ${part3}`)
-  //   .then((resp) => resp.json())
-  //   .then((data) => rates = data.rates)
-  //   .then(currency);
+  fetch(`http://data.fixer.io/api/latest?access_key=${part1}${part2}${part3}`)
+    .then((resp) => resp.json())
+    .then((data) => rates = data.rates)
+    .then(currency);
 
 
   function currency() {
@@ -116,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (input_usd) {
-          ratio = EUR/USD;
+          ratio = EUR / USD;
           inputEUR.value = (Math.floor((item.value * (ratio)) * 100) / 100);
           inputRUB.value = (Math.floor((item.value * (ratio * RUB)) * 100) / 100);
           inputGBP.value = (Math.floor((item.value * (ratio * GBP)) * 100) / 100);
@@ -124,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (input_rub) {
-          ratio = EUR/RUB;
+          ratio = EUR / RUB;
           inputEUR.value = (Math.floor((item.value * (ratio)) * 100) / 100);
           inputUSD.value = (Math.floor((item.value * (ratio * USD)) * 100) / 100);
           inputGBP.value = (Math.floor((item.value * (ratio * GBP)) * 100) / 100);
@@ -132,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (input_byn) {
-          ratio = EUR/BYN;
+          ratio = EUR / BYN;
           inputEUR.value = (Math.floor((item.value * (ratio)) * 100) / 100);
           inputUSD.value = (Math.floor((item.value * (ratio * USD)) * 100) / 100);
           inputGBP.value = (Math.floor((item.value * (ratio * GBP)) * 100) / 100);
@@ -140,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (input_gbp) {
-          ratio = EUR/GBP;
+          ratio = EUR / GBP;
           inputEUR.value = (Math.floor((item.value * (ratio)) * 100) / 100);
           inputUSD.value = (Math.floor((item.value * (ratio * USD)) * 100) / 100);
           inputRUB.value = (Math.floor((item.value * (ratio * RUB)) * 100) / 100);
@@ -155,17 +166,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentCourseToRUB = document.querySelector('.currency__converse--rub');
     const currentCourseToGBP = document.querySelector('.currency__converse--gbp');
 
-    let ratio_byn = EUR/BYN;
+    let ratio_byn = EUR / BYN;
     currentCourseToUSD.textContent = (Math.floor((1 * (ratio_byn * USD)) * 100) / 100);
     currentCourseToRUB.textContent = (Math.floor((1 * (ratio_byn * RUB)) * 100) / 100);
     currentCourseToEUR.textContent = (Math.floor((1 * (ratio_byn * EUR)) * 100) / 100);
     currentCourseToGBP.textContent = (Math.floor((1 * (ratio_byn * GBP)) * 100) / 100);
-    
+
   }
 
-  // if (rates == {}) {
-  // }
-  currency();
+  if (Object.keys(rates).length == 0) {
+    currency();
+  }
 
 
   const goUp = document.querySelector('.go-up');
@@ -180,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
     previewWrapper.classList.toggle('active');
   });
 
-  
+
 
 
   // inputRub.addEventListener('input', () => {
