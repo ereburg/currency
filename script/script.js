@@ -20,49 +20,49 @@ document.addEventListener("DOMContentLoaded", () => {
   textDate.textContent = date;
 
 
-  // Titles
-  const titles = document.querySelectorAll('.currency__preview-item');
+  // // Titles
+  // const titles = document.querySelectorAll('.currency__preview-item');
 
-  function calcTitleWidth() {
-    titles.forEach(item => {
-      let WIDTH = getComputedStyle(item).width;
-      let HEIGHT = item.style.height = WIDTH;
-    });
-  }
+  // function calcTitleWidth() {
+  //   titles.forEach(item => {
+  //     let WIDTH = getComputedStyle(item).width;
+  //     let HEIGHT = item.style.height = WIDTH;
+  //   });
+  // }
 
-  // calcTitleWidth();
+  // // calcTitleWidth();
 
-  function calcTitleWidth2() {
-    titles.forEach(item => {
-      let HEIGHT = item.style.height = '120px';
-    });
-  }
+  // function calcTitleWidth2() {
+  //   titles.forEach(item => {
+  //     let HEIGHT = item.style.height = '120px';
+  //   });
+  // }
 
-  // calcTitleWidth2();
+  // // calcTitleWidth2();
 
-  let viewportWidth;
+  // let viewportWidth;
 
-  const setViewportWidth = function () {
-    viewportWidth = window.innerWidth || document.documentElement.clientWidth;
-  };
+  // const setViewportWidth = function () {
+  //   viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+  // };
 
-  const logWidth = function () { // Log the viewport width into the console
-    if (viewportWidth > 435) {
-      calcTitleWidth();
-    } else {
-      calcTitleWidth2();
-    }
-  };
+  // const logWidth = function () { // Log the viewport width into the console
+  //   if (viewportWidth > 435) {
+  //     calcTitleWidth();
+  //   } else {
+  //     calcTitleWidth2();
+  //   }
+  // };
 
-  setViewportWidth();
+  // setViewportWidth();
+  // // logWidth();
+
+  // window.addEventListener('resize', function () { // On resize events, recalculate and log
+  //   setViewportWidth();
+  //   logWidth();
+  // }, false);
+
   // logWidth();
-
-  window.addEventListener('resize', function () { // On resize events, recalculate and log
-    setViewportWidth();
-    logWidth();
-  }, false);
-
-  logWidth();
 
 
 

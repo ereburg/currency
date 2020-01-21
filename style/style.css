@@ -144,6 +144,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 3.75rem 2rem;
   font-size: 1.5rem;
   font-weight: 500;
   border-radius: calc(var(--radius) - 2rem);
@@ -265,16 +266,14 @@ body {
 }
 
 .preview-wrapper {
-  position: absolute;
-  left: 0;
-  right: 0;
+  position: relative;
   margin: 0 1rem;
   display: grid;
   gap: 3rem;
 }
 
 .preview-wrapper.active {
-  transform: translateY(-450px);
+  transform: translateY(-460px);
 }
 
 .choose {
@@ -294,7 +293,7 @@ body {
 }
 
 .form-wrapper.active {
-  transform: translateY(-175%);
+  transform: translateY(-20%);
   pointer-events: all;
 }
 
@@ -337,52 +336,65 @@ body {
   border-right: none;
 }
 
-@media screen and (max-width: 435px), screen and (max-height: 500px) {
+@media screen and (max-width: 435px) {
   .currency {
-    grid-template-rows: max-content minmax(555px, calc(100vh - 46px - 62px - 6.5rem)) max-content;
+    grid-template-rows: max-content minmax(450px, calc(100vh - 46px - 62px - 11rem)) max-content;
     margin: 0;
-    padding: 2rem 1rem;
+    padding: 3rem 0 2rem;
     max-width: 100%;
     min-width: 100%;
-    gap: 1rem;
+    gap: 3rem;
     width: 100vw;
     min-height: 100vh;
     border-radius: 0;
   }
 
-  .currency__preview {
-    max-height: 300px;
+  .center-wrapper {
+    margin: 0;
+    padding: 0;
+  }
+  .currency__preview-item{
+    padding: 2rem;
   }
 
   .preview-wrapper {
-    display: grid;
-    gap: 3rem;
     font-size: 0.9rem;
-  }
-
-  .choose {
-    font-size: 13px;
   }
 
   .preview-wrapper.active {
     transform: translateY(calc(-100% + 55px));
   }
+  .choose {
+    font-size: 13px;
+  }
+
+  .form-wrapper {
+    bottom: -410%;
+  }
 
   .form-wrapper.active {
-    transform: translateY(-650px);
+    transform: translateY(-10%);
+    bottom: -110%;
+  }
+
+  .form {
+    border: none;
   }
 }
 
-@media screen and (max-width: 350px), screen and (max-height: 400px) {
+@media screen and (max-width: 340px) {
   .form-wrapper.active {
-    transform: translateY(calc(-180% + 55px));
+    transform: translateY(-29%);
   }
 }
 
 
-@media screen and (min-width: 413px) and (max-width: 415px) {
-  .form-wrapper.active {
-    bottom: -80%;
+@media screen and (max-width: 375px) {
+  .currency {
+    grid-template-rows: max-content minmax(470px, calc(100vh - 46px - 62px - 11rem)) max-content;
+  }
 
+  .form-wrapper.active {
+    transform: translateY(-20%);
   }
 }
